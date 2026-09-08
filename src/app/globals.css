@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #FAF8F5;
+    --foreground: #1C2024;
+    
+    --surface: #FFFFFF;
+    --surface-subtle: #F5EFEB;
+    --surface-elevated: #EDE6DC;
+    --surface-glass: rgba(255, 255, 255, 0.82);
+
+    --primary: #4A6B5D;
+    --primary-hover: #3B5749;
+    --primary-subtle: rgba(74, 107, 93, 0.1);
+    --primary-foreground: #FFFFFF;
+
+    --accent: #C5A869;
+    --accent-hover: #B89748;
+    --accent-subtle: rgba(197, 168, 105, 0.12);
+    --accent-foreground: #1C2024;
+
+    --card: #FFFFFF;
+    --card-foreground: #1C2024;
+    --card-border: rgba(28, 32, 36, 0.07);
+
+    --border: rgba(28, 32, 36, 0.08);
+    --border-glow: rgba(74, 107, 93, 0.25);
+
+    --muted: #6B7280;
+    --muted-foreground: #9CA3AF;
+  }
+
+  * {
+    border-color: var(--border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--background);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-serif {
+    font-family: var(--font-serif), Georgia, serif;
+    letter-spacing: -0.015em;
+  }
+}
+
+/* Warm Ivory & Champagne Mesh Glow */
+.bg-mesh-glow {
+  background-image: 
+    radial-gradient(at 15% 15%, rgba(74, 107, 93, 0.07) 0px, transparent 55%),
+    radial-gradient(at 85% 10%, rgba(197, 168, 105, 0.1) 0px, transparent 50%),
+    radial-gradient(at 50% 85%, rgba(245, 239, 235, 0.8) 0px, transparent 65%);
+}
+
+.bg-hero-glow {
+  background: radial-gradient(
+    circle at 50% 30%,
+    rgba(197, 168, 105, 0.12) 0%,
+    rgba(244, 239, 234, 0.6) 50%,
+    transparent 80%
+  );
+}
+
+/* Glassmorphism Styles for Warm Ivory Palette */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(28, 32, 36, 0.07);
+  box-shadow: 0 10px 30px -5px rgba(28, 32, 36, 0.04), 0 1px 3px rgba(28, 32, 36, 0.02);
+}
+
+.glass-panel-hover {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(74, 107, 93, 0.3);
+  box-shadow: 0 16px 40px -8px rgba(74, 107, 93, 0.12), 0 2px 6px rgba(0, 0, 0, 0.03);
+  transform: translateY(-3px);
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(28, 32, 36, 0.08);
+}
+
+/* Luxury Editorial Text Gradients */
+.text-gradient-sage {
+  background: linear-gradient(135deg, #1C2024 0%, #3B5749 60%, #5C7C6D 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #1C2024 0%, #8A6E2D 50%, #C5A869 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-subtle {
+  background: linear-gradient(180deg, #1C2024 0%, #4B5563 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Custom Soft Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAF8F5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(28, 32, 36, 0.15);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4A6B5D;
+}
