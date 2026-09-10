@@ -1,11 +1,31 @@
 import React from "react";
+import { Metadata } from "next";
 import { getConsultants } from "@/lib/api/consultants";
 import { getCategories } from "@/lib/api/categories";
 import { ExpertsDirectoryClient } from "@/components/consultants/ExpertsDirectoryClient";
+import { siteConfig } from "@/config/site";
 
-export const metadata = {
-  title: "Our Verified Experts — PureTalks",
-  description: "Browse certified counselors, clinical psychologists, and mentors.",
+export const metadata: Metadata = {
+  title: "PureTalks Verified Experts — Licensed Counselors & Coaches",
+  description: "Browse certified counselors, clinical psychologists, relationship therapists, and executive coaches on PureTalks. Rated 4.96/5 by 1200+ clients. Starting from ₹399.",
+  keywords: [
+    "PureTalks experts",
+    "pure talks counselors",
+    "certified counselors India",
+    "online psychologists",
+    "relationship therapists",
+    "executive coaches",
+    "mental health professionals",
+  ],
+  alternates: {
+    canonical: `${siteConfig.url}/experts`,
+  },
+  openGraph: {
+    title: "PureTalks Verified Experts — Licensed Counselors & Coaches",
+    description: "Browse certified counselors, clinical psychologists, and mentors on PureTalks.",
+    url: `${siteConfig.url}/experts`,
+    type: "website",
+  },
 };
 
 interface Props {

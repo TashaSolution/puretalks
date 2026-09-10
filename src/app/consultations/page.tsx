@@ -1,12 +1,32 @@
 import React from "react";
+import { Metadata } from "next";
 import { getCategories } from "@/lib/api/categories";
 import { CategoryGrid } from "@/components/categories/CategoryGrid";
 import { Badge } from "@/ui/Badge";
 import { Sparkles } from "lucide-react";
+import { siteConfig } from "@/config/site";
 
-export const metadata = {
-  title: "Consultation Categories — PureTalks",
-  description: "Browse all private consultation categories available on PureTalks.",
+export const metadata: Metadata = {
+  title: "PureTalks Consultation Categories — All Services",
+  description: "Browse all private consultation categories on PureTalks — emotional healing, relationship counseling, career coaching, youth mentoring, and mindfulness training. Starting from ₹399.",
+  keywords: [
+    "pure talks categories",
+    "consultation categories",
+    "mental health counseling",
+    "relationship therapy",
+    "executive coaching",
+    "youth mentoring",
+    "mindfulness training",
+  ],
+  alternates: {
+    canonical: `${siteConfig.url}/consultations`,
+  },
+  openGraph: {
+    title: "PureTalks Consultation Categories — All Services",
+    description: "Browse all private consultation categories on PureTalks.",
+    url: `${siteConfig.url}/consultations`,
+    type: "website",
+  },
 };
 
 export default async function ConsultationsPage() {

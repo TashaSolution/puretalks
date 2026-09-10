@@ -1,13 +1,32 @@
 import React from "react";
+import { Metadata } from "next";
 import { getConsultants } from "@/lib/api/consultants";
 import { getCategories } from "@/lib/api/categories";
 import { BookingFlowContainer } from "@/components/booking/BookingFlowContainer";
 import { Badge } from "@/ui/Badge";
 import { Lock } from "lucide-react";
+import { siteConfig } from "@/config/site";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Book Private Consultation — PureTalks",
-  description: "Instant confidential slot reservation with certified psychologists and counselors.",
+  description: "Instant confidential slot reservation with certified psychologists and counselors on PureTalks. Anonymous mode available. Starting from ₹399. Encrypted video/audio rooms.",
+  keywords: [
+    "book online therapy",
+    "pure talks booking",
+    "consultation booking India",
+    "private counseling session",
+    "anonymous therapy booking",
+    "PureTalks booking",
+  ],
+  alternates: {
+    canonical: `${siteConfig.url}/book`,
+  },
+  openGraph: {
+    title: "Book Private Consultation — PureTalks",
+    description: "Instant confidential slot reservation with certified specialists.",
+    url: `${siteConfig.url}/book`,
+    type: "website",
+  },
 };
 
 interface Props {

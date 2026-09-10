@@ -1,0 +1,33 @@
+# PureTalks
+
+> PureTalks is a confidential online consultation platform connecting users with licensed psychologists, relationship counselors, and executive coaches in India.
+
+## What We Do
+
+PureTalks provides 100% private, anonymous online consultations for mental health, relationship counseling, career coaching, youth mentoring, and mindfulness training. Sessions are encrypted, zero-recording, and available via video, audio, or anonymous stealth mode.
+
+## Key Facts
+
+- **Founded:** India
+- **Services:** Mental Health Counseling, Relationship Therapy, Executive Coaching, Youth Mentoring, Mindfulness Training, Career Guidance
+- **Pricing:** Starting from ₹399 INR
+- **Rating:** 4.96/5 based on 1230+ verified reviews
+- **Availability:** India (online, browser-based, no app required)
+- **Privacy:** Anonymous mode, end-to-end encryption, zero session recordings
+
+## Core Pages
+
+- [Home](https://puretalks.in) - Main landing page
+- [About](https://puretalks.in/about) - Mission, philosophy, and founding story
+- [How It Works](https://puretalks.in/how-it-works) - Step-by-step consultation process
+- [Consultation Categories](https://puretalks.in/consultations) - All service categories
+- [Our Experts](https://puretalks.in/experts) - Browse verified counselors and coaches
+- [Book a Session](https://puretalks.in/book) - Confidential slot reservation
+- [FAQ](https://puretalks.in/faq) - Privacy, booking, and pricing answers
+- [Contact](https://puretalks.in/contact) - Support channels and inquiries
+
+## Contact
+
+- Email: care@puretalks.in
+- WhatsApp: +91 98400 12345
+- Website: https://puretalks.in

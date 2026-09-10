@@ -1,18 +1,79 @@
 import React from "react";
 import Link from "next/link";
+import { Metadata } from "next";
 import { Badge } from "@/ui/Badge";
 import { Button } from "@/ui/Button";
 import { Card } from "@/ui/Card";
 import { ShieldCheck, Heart, Sparkles, Lock, ArrowRight } from "lucide-react";
+import { siteConfig } from "@/config/site";
 
-export const metadata = {
-  title: "Our Sanctuary & Philosophy — PureTalks",
-  description: "Learn why we founded PureTalks to offer private, confidential online consultations.",
+export const metadata: Metadata = {
+  title: "About PureTalks — Our Sanctuary & Philosophy",
+  description: "Learn why PureTalks was founded to offer private, confidential online consultations. Our mission: a judgment-free sanctuary for mental health, relationships, and career growth.",
+  keywords: [
+    "about PureTalks",
+    "PureTalks mission",
+    "pure talks philosophy",
+    "confidential counseling platform",
+    "mental health sanctuary India",
+    "private online consultations",
+  ],
+  alternates: {
+    canonical: `${siteConfig.url}/about`,
+  },
+  openGraph: {
+    title: "About PureTalks — Our Sanctuary & Philosophy",
+    description: "Learn why PureTalks was founded to offer private, confidential online consultations.",
+    url: `${siteConfig.url}/about`,
+    type: "website",
+  },
 };
 
 export default function AboutPage() {
+  const aboutSchema = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    name: "About PureTalks — Our Sanctuary & Philosophy",
+    description:
+      "Learn why PureTalks was founded to offer private, confidential online consultations. Our mission: a judgment-free sanctuary for mental health, relationships, and career growth.",
+    url: `${siteConfig.url}/about`,
+    mainEntity: {
+      "@type": "Organization",
+      name: "PureTalks",
+      url: siteConfig.url,
+      description: siteConfig.description,
+    },
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: siteConfig.url,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "About",
+        item: `${siteConfig.url}/about`,
+      },
+    ],
+  };
+
   return (
     <div className="pt-32 pb-24 container mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Hero */}
       <div className="text-center max-w-3xl mx-auto space-y-4">
         <Badge variant="sage" size="sm" className="font-semibold">

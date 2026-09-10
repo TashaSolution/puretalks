@@ -1,15 +1,59 @@
 import React from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getCategoryBySlug } from "@/lib/api/categories";
+import { Metadata } from "next";
+import { getCategoryBySlug, getCategories } from "@/lib/api/categories";
 import { getConsultantsByCategory } from "@/lib/api/consultants";
 import { ConsultantGrid } from "@/components/consultants/ConsultantGrid";
 import { Badge } from "@/ui/Badge";
 import { Lock } from "lucide-react";
+import { siteConfig } from "@/config/site";
 
 interface Props {
   params: {
     slug: string;
+  };
+}
+
+export async function generateStaticParams() {
+  const categories = await getCategories();
+  return categories.map((c) => ({
+    slug: c.slug,
+  }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const category = await getCategoryBySlug(params.slug);
+  if (!category) return { title: "Category Not Found" };
+
+  const title = `${category.title} — Online Consultation`;
+  const description = `${category.description} Starting from ₹${category.startingPrice}. ${category.availableConsultantsCount}+ verified experts available on PureTalks.`;
+  const url = `${siteConfig.url}/consultations/${category.slug}`;
+
+  return {
+    title,
+    description,
+    keywords: [
+      category.title,
+      ...category.popularTopics,
+      "online consultation",
+      "private therapy India",
+      "PureTalks",
+    ],
+    alternates: {
+      canonical: url,
+    },
+    openGraph: {
+      title: `${title} | PureTalks`,
+      description,
+      url,
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} | PureTalks`,
+      description,
+    },
   };
 }
 
@@ -21,9 +65,66 @@ export default async function CategoryDetailPage({ params }: Props) {
   }
 
   const consultants = await getConsultantsByCategory(category.id);
+  const url = `${siteConfig.url}/consultations/${category.slug}`;
+
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: category.title,
+    description: category.description,
+    provider: {
+      "@type": "Organization",
+      name: "PureTalks",
+      url: siteConfig.url,
+    },
+    areaServed: {
+      "@type": "Country",
+      name: "India",
+    },
+    serviceType: category.popularTopics,
+    offers: {
+      "@type": "AggregateOffer",
+      lowPrice: category.startingPrice,
+      priceCurrency: "INR",
+      offerCount: category.availableConsultantsCount,
+    },
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: siteConfig.url,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Consultations",
+        item: `${siteConfig.url}/consultations`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: category.title,
+        item: url,
+      },
+    ],
+  };
 
   return (
     <div className="pt-32 pb-24 container mx-auto px-4 sm:px-6 lg:px-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Breadcrumb */}
       <div className="flex items-center gap-2 text-xs text-[#6B7280] font-medium mb-8">
         <Link href="/" className="hover:text-[#1C2024]">Home</Link>

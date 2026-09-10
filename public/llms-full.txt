@@ -1,0 +1,103 @@
+# PureTalks — Full Site Summary
+
+> PureTalks is a confidential online consultation platform connecting users with licensed psychologists, relationship counselors, and executive coaches across India. Founded as a judgment-free sanctuary for mental health, relationships, and career growth.
+
+## About PureTalks
+
+PureTalks was created to solve a critical problem: people navigating deep emotional turmoil, marital conflicts, or career crossroads need a safe, confidential space to speak freely. Traditional therapy often lacks privacy, and online platforms rarely guarantee true anonymity.
+
+PureTalks addresses this with:
+- **Zero-recording policy** across all sessions
+- **Peer-to-peer WebRTC encryption** for all calls
+- **Anonymous Stealth Mode** with alias names and camera-off default
+- **No app required** — browser-based on any device
+- **Vetted professionals** — licensed psychologists (M.Phil/Ph.D.), ICF-certified coaches, verified counselors
+
+## Services Offered
+
+### 1. Mental Health Counseling
+Confidential sessions with licensed clinical psychologists for anxiety, depression, stress, trauma, and emotional well-being. Starting from ₹399.
+
+### 2. Relationship & Marriage Counseling
+Expert guidance for couples, pre-marital counseling, conflict resolution, and relationship alignment. Video and audio modes available.
+
+### 3. Executive & Leadership Coaching
+Professional development for career transitions, leadership skills, executive presence, and workplace challenges. ICF-accredited mentors.
+
+### 4. Youth Mentoring
+Age-appropriate guidance for students and young professionals navigating academic pressure, career decisions, and personal growth.
+
+### 5. Mindfulness & Stress Management
+Sessions focused on meditation techniques, stress reduction, work-life balance, and emotional regulation.
+
+### 6. Career Guidance
+Strategic career planning, resume review, interview preparation, and professional development coaching.
+
+## Consultation Modes
+
+1. **Private Voice Call** — Audio-only browser call, no video pressure
+2. **1-on-1 Video Session** — HD face-to-face via browser
+3. **Anonymous Stealth Mode** — Alias name, camera off, zero digital footprint
+
+## Pricing
+
+- Starting from ₹399 INR per session
+- Range: ₹399 – ₹1,999
+- Payment is secure and confidential
+
+## Expert Verification Process
+
+Every expert on PureTalks undergoes:
+1. Background verification
+2. Credential authentication (M.Phil/Ph.D., ICF certification)
+3. Clinical ethics vetting
+4. Ongoing performance review
+
+Current stats: 4.96/5 average rating from 1,230+ verified client reviews.
+
+## Privacy & Security
+
+- End-to-end encrypted rooms (WebRTC)
+- Zero session recording policy
+- Anonymous mode with pseudonym support
+- No mandatory personal information
+- GDPR-aligned data practices
+- No third-party data sharing
+
+## Technology
+
+- Browser-based (no app download required)
+- Works on mobile, tablet, and desktop
+- Peer-to-peer encrypted connections
+- Instant room link generation after booking
+
+## Frequently Asked Questions
+
+**Q: How is my privacy protected?**
+A: PureTalks uses end-to-end WebRTC encryption, zero recording policy, and optional anonymous mode with alias names.
+
+**Q: Do I need to download an app?**
+A: No. Click the room link in your browser on any device.
+
+**Q: Can I choose audio-only?**
+A: Yes. Private Voice Call and Anonymous Stealth Mode both support audio-only.
+
+**Q: Are the counselors licensed?**
+A: Yes. All experts are verified licensed psychologists, certified therapists, or ICF-accredited coaches.
+
+**Q: What if I need to reschedule?**
+A: Reschedule free up to 2 hours before your session via confirmation email or support.
+
+## Contact Information
+
+- **Email:** care@puretalks.in
+- **Support:** support@puretalks.in
+- **WhatsApp:** +91 98400 12345
+- **Headquarters:** India
+- **Website:** https://puretalks.in
+
+## Social Profiles
+
+- Twitter: https://twitter.com/puretalks_in
+- Instagram: https://instagram.com/puretalks.in
+- LinkedIn: https://linkedin.com/company/puretalks

@@ -1,18 +1,98 @@
 import React from "react";
+import { Metadata } from "next";
 import { Badge } from "@/ui/Badge";
 import { Card } from "@/ui/Card";
 import { HowItWorksSection } from "@/components/sections/HowItWorksSection";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { ShieldCheck, Video, Mic } from "lucide-react";
+import { siteConfig } from "@/config/site";
 
-export const metadata = {
-  title: "How It Works — PureTalks",
-  description: "Learn how easy and private it is to book and attend consultations on PureTalks.",
+export const metadata: Metadata = {
+  title: "How PureTalks Works — Private Consultation Process",
+  description: "Learn how easy and private it is to book and attend consultations on PureTalks. Three flexible modes: audio, video, and anonymous stealth mode. No app download needed.",
+  keywords: [
+    "how PureTalks works",
+    "pure talks consultation process",
+    "online consultation process",
+    "private therapy booking",
+    "anonymous counseling mode",
+    "video consultation India",
+  ],
+  alternates: {
+    canonical: `${siteConfig.url}/how-it-works`,
+  },
+  openGraph: {
+    title: "How PureTalks Works — Private Consultation Process",
+    description: "Learn how easy and private it is to book and attend consultations on PureTalks.",
+    url: `${siteConfig.url}/how-it-works`,
+    type: "website",
+  },
 };
 
 export default function HowItWorksPage() {
+  const howToSchema = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: "How to Book a Private Consultation on PureTalks",
+    description:
+      "Three simple steps to book a confidential online consultation with licensed psychologists and counselors on PureTalks.",
+    step: [
+      {
+        "@type": "HowToStep",
+        name: "Choose Your Expert",
+        text: "Browse verified psychologists, relationship counselors, and executive coaches. Filter by specialization, availability, and rating.",
+        url: `${siteConfig.url}/experts`,
+      },
+      {
+        "@type": "HowToStep",
+        name: "Book a Confidential Slot",
+        text: "Select your preferred date, time, and consultation mode — video, audio, or anonymous stealth mode. Payment starts from ₹399.",
+        url: `${siteConfig.url}/book`,
+      },
+      {
+        "@type": "HowToStep",
+        name: "Connect in a Private Room",
+        text: "At your scheduled time, click the encrypted room link. No app download needed. Join from any browser on phone or laptop.",
+        url: `${siteConfig.url}/how-it-works`,
+      },
+    ],
+    totalTime: "PT10M",
+    estimatedCost: {
+      "@type": "MonetaryAmount",
+      currency: "INR",
+      value: "399",
+    },
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: siteConfig.url,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "How It Works",
+        item: `${siteConfig.url}/how-it-works`,
+      },
+    ],
+  };
+
   return (
     <div className="pt-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <HowItWorksSection />
 
       {/* Consultation Modes Detailed */}
