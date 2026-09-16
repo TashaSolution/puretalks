@@ -7,9 +7,9 @@ import { siteConfig } from "@/config/site";
 import { faqsData } from "@/data/faqs";
 
 export const metadata: Metadata = {
-  title: "PureTalks — Private Online Consultations & Mental Clarity Sanctuary",
+  title: "Private Online Consultations & Expert Guidance | PureTalks",
   description:
-    "100% confidential online consultations with licensed psychologists, relationship counselors, and executive coaches on PureTalks. Anonymous mode available. Starting from ₹399.",
+    "Private online consultations with experienced PureTalks experts for career, relationships, personal growth, mindfulness and emotional clarity. Starting from ₹399.",
   keywords: [
     "pure talks",
     "puretalks",
@@ -19,14 +19,25 @@ export const metadata: Metadata = {
     "confidential counseling",
     "mental health platform",
     "anonymous psychologist online",
+    "online psychologist india",
+    "mental health consultation online india",
+    "video therapy india",
+    "online counseling india",
+    "best psychologist online india",
+    "teletherapy india",
+    "online therapist india",
+    "couples counseling online india",
+    "online anxiety counseling india",
+    "online depression therapy india",
+    "affordable online therapy india",
   ],
   alternates: {
     canonical: siteConfig.url,
   },
   openGraph: {
-    title: "PureTalks — Private Online Consultations & Mental Clarity Sanctuary",
+    title: "Private Online Consultations & Expert Guidance | PureTalks",
     description:
-      "100% confidential online consultations with licensed psychologists, relationship counselors, and executive coaches. Anonymous mode available.",
+      "Private online consultations with experienced PureTalks experts for career, relationships, personal growth, mindfulness and emotional clarity.",
     url: siteConfig.url,
     siteName: "PureTalks",
     type: "website",

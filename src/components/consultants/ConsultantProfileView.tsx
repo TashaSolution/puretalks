@@ -176,7 +176,7 @@ export function ConsultantProfileView({ consultant, reviews }: Props) {
                   </div>
 
                   <p className="text-xs text-[#4B5563] leading-relaxed italic">
-                    "{rev.comment}"
+                    &ldquo;{rev.comment}&rdquo;
                   </p>
 
                   <div className="flex items-center gap-3 text-[10px] text-[#9CA3AF] pt-1 border-t border-black/[0.04] font-medium">

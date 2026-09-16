@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { Badge } from "@/ui/Badge";
 import { Button } from "@/ui/Button";
 import { Card } from "@/ui/Card";
@@ -148,6 +149,25 @@ export default function ContactPage() {
               </form>
             )}
           </Card>
+        </div>
+      </div>
+
+      {/* Quick Links */}
+      <div className="max-w-3xl mx-auto text-center space-y-3 pt-8 border-t border-black/[0.06]">
+        <p className="text-xs text-[#6B7280]">Looking for something specific?</p>
+        <div className="flex flex-wrap justify-center gap-4">
+          <Link href="/faq" className="text-xs font-semibold text-[#4A6B5D] underline hover:text-[#3B5749]">
+            FAQ
+          </Link>
+          <Link href="/how-it-works" className="text-xs font-semibold text-[#4A6B5D] underline hover:text-[#3B5749]">
+            How it works
+          </Link>
+          <Link href="/consultations" className="text-xs font-semibold text-[#4A6B5D] underline hover:text-[#3B5749]">
+            Consultation services
+          </Link>
+          <Link href="/book" className="text-xs font-semibold text-[#4A6B5D] underline hover:text-[#3B5749]">
+            Book a session
+          </Link>
         </div>
       </div>
     </div>

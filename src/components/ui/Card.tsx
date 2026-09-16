@@ -20,7 +20,7 @@ export function Card({
       className={cn(
         "rounded-2xl transition-all duration-350 relative overflow-hidden",
         glass
-          ? "bg-white/85 backdrop-blur-xl border border-black/[0.07] shadow-card"
+          ? "bg-white border border-black/[0.07] shadow-card"
           : "bg-white border border-black/[0.08] shadow-soft",
         hoverEffect && "hover:border-[#4A6B5D]/35 hover:shadow-card-hover hover:-translate-y-1",
         glowBorder && "border-[#4A6B5D]/40 shadow-glow-sage",

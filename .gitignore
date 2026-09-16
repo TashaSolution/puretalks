@@ -7,12 +7,25 @@
 .yarn/install-state.gz
 .ralphy/
 .agent/
+.agents/
+.agents/*
+.agents/**
+.aider-desk/*
+.aider-desk/**
 # testing
 /coverage
-
+backend_server/
+development
+development.log
+development.py
+development.pyc
+development.pyo
+development.py
 # next.js
 /.next/
 /out/
+api.md
+dev-server.log
 
 # production
 /build

@@ -12,6 +12,7 @@ import { WhyChooseUsSection } from "@/components/sections/WhyChooseUsSection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { FinalCTASection } from "@/components/sections/FinalCTASection";
+import { SEOContentSection } from "@/components/home/SEOContentSection";
 import { ConsultationCategory } from "@/types/category";
 import { Consultant } from "@/types/consultant";
 
@@ -55,6 +56,9 @@ export function HomeClientExperience({ categories, featuredConsultants }: Props)
 
       {/* Final Call to Action */}
       <FinalCTASection />
+
+      {/* SEO Content Section */}
+      <SEOContentSection />
     </div>
   );
 }

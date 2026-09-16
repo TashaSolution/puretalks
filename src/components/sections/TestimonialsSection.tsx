@@ -49,7 +49,7 @@ export function TestimonialsSection() {
                   </div>
 
                   <p className="text-xs text-[#4B5563] leading-relaxed italic">
-                    "{item.quote}"
+                    &ldquo;{item.quote}&rdquo;
                   </p>
                 </div>
 

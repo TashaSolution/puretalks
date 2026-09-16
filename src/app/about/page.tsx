@@ -8,8 +8,8 @@ import { ShieldCheck, Heart, Sparkles, Lock, ArrowRight } from "lucide-react";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "About PureTalks — Our Sanctuary & Philosophy",
-  description: "Learn why PureTalks was founded to offer private, confidential online consultations. Our mission: a judgment-free sanctuary for mental health, relationships, and career growth.",
+  title: "About PureTalks — Our Consultation Platform",
+  description: "Learn about PureTalks, our purpose, consultation approach and the expert-led support available through the platform.",
   keywords: [
     "about PureTalks",
     "PureTalks mission",
@@ -22,10 +22,18 @@ export const metadata: Metadata = {
     canonical: `${siteConfig.url}/about`,
   },
   openGraph: {
-    title: "About PureTalks — Our Sanctuary & Philosophy",
-    description: "Learn why PureTalks was founded to offer private, confidential online consultations.",
+    title: "About PureTalks — Our Consultation Platform",
+    description: "Learn about PureTalks, our purpose, consultation approach and expert-led support.",
     url: `${siteConfig.url}/about`,
     type: "website",
+    locale: "en_IN",
+    images: [{ url: siteConfig.ogImage, width: 1200, height: 630, alt: "About PureTalks" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About PureTalks — Our Consultation Platform",
+    description: "Learn about PureTalks, our purpose and expert-led consultation platform.",
+    images: [siteConfig.ogImage],
   },
 };
 
@@ -81,7 +89,7 @@ export default function AboutPage() {
           Our Sacred Mission
         </Badge>
         <h1 className="text-3xl sm:text-5xl font-serif font-bold text-[#1C2024] tracking-tight leading-tight">
-          A Judgment-Free Sanctuary for Every Heart
+          About PureTalks
         </h1>
         <p className="text-base text-[#4B5563] leading-relaxed font-normal">
           PureTalks was born from a simple yet profound realization: when navigating deep emotional turmoil, marital conflicts, or career crossroads, true healing happens when you can express yourself in a space of complete confidentiality, safety, and non-judgment.
@@ -119,6 +127,27 @@ export default function AboutPage() {
             We curate only accredited psychologists, ICF certified executive coaches, and licensed counselors with a proven history of empathetic guidance.
           </p>
         </Card>
+      </div>
+
+      {/* Quick Links */}
+      <div className="max-w-3xl mx-auto text-center space-y-4">
+        <h2 className="text-xl font-serif font-bold text-[#1C2024]">
+          Explore PureTalks
+        </h2>
+        <div className="flex flex-wrap justify-center gap-4">
+          <Link href="/consultations" className="text-sm font-semibold text-[#4A6B5D] underline hover:text-[#3B5749]">
+            Consultation services
+          </Link>
+          <Link href="/experts" className="text-sm font-semibold text-[#4A6B5D] underline hover:text-[#3B5749]">
+            Meet our experts
+          </Link>
+          <Link href="/how-it-works" className="text-sm font-semibold text-[#4A6B5D] underline hover:text-[#3B5749]">
+            How it works
+          </Link>
+          <Link href="/faq" className="text-sm font-semibold text-[#4A6B5D] underline hover:text-[#3B5749]">
+            Frequently asked questions
+          </Link>
+        </div>
       </div>
 
       {/* CTA */}

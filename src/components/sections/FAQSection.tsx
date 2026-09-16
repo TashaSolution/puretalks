@@ -59,7 +59,7 @@ export function FAQSection() {
 
                   {isOpen && (
                     <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-[#4B5563] leading-relaxed border-t border-black/[0.04]">
-                      {faq.answer}
+                      {faq.answerNode || faq.answer}
                     </div>
                   )}
                 </Card>

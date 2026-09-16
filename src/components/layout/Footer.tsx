@@ -127,8 +127,10 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="mt-8 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-[#6B7280] gap-4">
           <p>© {new Date().getFullYear()} PureTalks.in. All rights reserved.</p>
-          <div className="flex items-center gap-6 font-medium">
-            <span>Private Sanctuary</span>
+          <div className="flex items-center gap-4 sm:gap-6 font-medium flex-wrap justify-center">
+            <Link href="/terms" className="hover:text-[#4A6B5D] transition-colors">Terms</Link>
+            <Link href="/privacy" className="hover:text-[#4A6B5D] transition-colors">Privacy</Link>
+            <Link href="/cancellation-refund" className="hover:text-[#4A6B5D] transition-colors">Cancellation & Refund</Link>
             <span>•</span>
             <span>Zero Data Logging</span>
           </div>
