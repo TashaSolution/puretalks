@@ -8,8 +8,8 @@ import { ShieldCheck, Video, Mic } from "lucide-react";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "How PureTalks Works — Private Consultation Process",
-  description: "Learn how easy and private it is to book and attend consultations on PureTalks. Three flexible modes: audio, video, and anonymous stealth mode. No app download needed.",
+  title: "How Online Consultations Work | PureTalks",
+  description: "Learn how PureTalks private online consultations work, from choosing an expert to booking and attending a session. No app download needed.",
   keywords: [
     "how PureTalks works",
     "pure talks consultation process",
@@ -22,10 +22,18 @@ export const metadata: Metadata = {
     canonical: `${siteConfig.url}/how-it-works`,
   },
   openGraph: {
-    title: "How PureTalks Works — Private Consultation Process",
-    description: "Learn how easy and private it is to book and attend consultations on PureTalks.",
+    title: "How Online Consultations Work | PureTalks",
+    description: "Learn how PureTalks private online consultations work, from booking to session.",
     url: `${siteConfig.url}/how-it-works`,
     type: "website",
+    locale: "en_IN",
+    images: [{ url: siteConfig.ogImage, width: 1200, height: 630, alt: "How PureTalks Works" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "How Online Consultations Work | PureTalks",
+    description: "Learn how PureTalks private online consultations work.",
+    images: [siteConfig.ogImage],
   },
 };
 
@@ -93,6 +101,11 @@ export default function HowItWorksPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-4">
+        <h1 className="text-3xl sm:text-5xl font-serif font-bold text-[#1C2024] tracking-tight text-center">
+          How PureTalks Online Consultations Work
+        </h1>
+      </div>
       <HowItWorksSection />
 
       {/* Consultation Modes Detailed */}

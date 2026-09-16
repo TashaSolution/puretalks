@@ -4,7 +4,7 @@ export const siteConfig = {
   description:
     "100% confidential, private online consultations with licensed psychologists, relationship counselors, and executive coaches. A safe sanctuary with anonymous mode and zero data logging.",
   url: "https://puretalks.in",
-  ogImage: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=1200&q=80",
+  ogImage: "/images/og/puretalks-og.png",
   contact: {
     email: "care@puretalks.in",
     supportEmail: "support@puretalks.in",

@@ -84,6 +84,9 @@ export function ExpertsDirectoryClient({
         <p className="text-sm sm:text-base text-[#6B7280] leading-relaxed font-normal">
           Browse certified clinical psychologists, relationship therapists, and executive coaches.
         </p>
+        <p className="text-xs text-[#9CA3AF] leading-relaxed max-w-xl mx-auto">
+          Our team of licensed professionals offers online video, audio, and anonymous consultations for anxiety, depression, relationship counseling, career coaching, and personal growth — available across India starting from ₹399.
+        </p>
       </div>
 
       {/* Interactive Filters Bar */}

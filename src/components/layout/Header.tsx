@@ -7,12 +7,16 @@ import { usePathname } from "next/navigation";
 import { mainNavItems } from "@/config/navigation";
 import { Button } from "@/ui/Button";
 import { MobileNav } from "./MobileNav";
+import { SignInButton } from "@/components/auth/SignInButton";
+import { UserAvatar } from "@/components/auth/UserAvatar";
+import { useAuth } from "@/lib/auth/hooks";
 import { Shield, Sparkles, Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const { user, loading } = useAuth();
   const pathname = usePathname();
 
   useEffect(() => {
@@ -83,16 +87,32 @@ export function Header() {
 
         {/* Right CTA Button */}
         <div className="hidden lg:flex items-center gap-3.5">
-          <Link href="/book">
-            <Button
-              variant="primary"
-              size="sm"
-              leftIcon={<Sparkles className="w-3.5 h-3.5" />}
-              className="shadow-sm shadow-[#4A6B5D]/20 font-semibold"
-            >
-              Book Session
-            </Button>
-          </Link>
+          {user ? (
+            <div className="flex items-center gap-3.5">
+              <Link
+                href="/dashboard"
+                className="text-xs font-semibold text-[#4B5563] hover:text-[#1C2024] transition-colors"
+              >
+                Dashboard
+              </Link>
+              <UserAvatar />
+            </div>
+          ) : (
+            <>
+              <SignInButton size="sm" />
+              <Link href="/book">
+                <Button
+                  variant="primary"
+                  size="sm"
+                  leftIcon={<Sparkles className="w-3.5 h-3.5" />}
+                  className="shadow-sm shadow-[#4A6B5D]/20 font-semibold"
+                  disabled={loading}
+                >
+                  Book Session
+                </Button>
+              </Link>
+            </>
+          )}
         </div>
 
         {/* Mobile menu trigger */}

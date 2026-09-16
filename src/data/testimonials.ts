@@ -15,7 +15,7 @@ export const testimonialsData: TestimonialItem[] = [
     quote:
       "Having someone listen without judgment made all the difference. Dr. Soundarapandian helped me dissolve persistent anxiety and panic loops in just three sessions.",
     author: "Kavitha S.",
-    authorLocation: "Singapore",
+    authorLocation: "Mumbai, India",
     consultantName: "Dr. K. Soundarapandian",
     rating: 5,
     category: "Mental Health & Clarity",
@@ -26,7 +26,7 @@ export const testimonialsData: TestimonialItem[] = [
     quote:
       "My husband and I were on the brink of separation due to communication breakdowns. Priyadarshini provided a calm, empathetic space that truly restored our relationship.",
     author: "Manoj & Divya",
-    authorLocation: "Dubai, UAE",
+    authorLocation: "Bangalore, India",
     consultantName: "Priyadarshini Ramasamy",
     rating: 5,
     category: "Relationship & Marriage",
@@ -48,7 +48,7 @@ export const testimonialsData: TestimonialItem[] = [
     quote:
       "The anonymous audio mode gave me complete peace of mind. I could speak about deeply personal struggles without worrying about privacy or camera pressure.",
     author: "Anonymous Client",
-    authorLocation: "Toronto, Canada",
+    authorLocation: "Chennai, India",
     consultantName: "Dr. Radha Venkat",
     rating: 5,
     category: "Confidential Guidance",

@@ -49,6 +49,26 @@ export default function robots(): MetadataRoute.Robots {
         allow: ['/', '/llms.txt', '/llms-full.txt'],
         disallow: ['/room/', '/api/'],
       },
+      {
+        userAgent: 'OAI-SearchBot',
+        allow: ['/', '/llms.txt', '/llms-full.txt'],
+        disallow: ['/room/', '/api/'],
+      },
+      {
+        userAgent: 'Twitterbot',
+        allow: '/',
+        disallow: ['/room/', '/api/'],
+      },
+      {
+        userAgent: 'facebookexternalhit',
+        allow: '/',
+        disallow: ['/room/', '/api/'],
+      },
+      {
+        userAgent: 'LinkedInBot',
+        allow: '/',
+        disallow: ['/room/', '/api/'],
+      },
     ],
     sitemap: `${siteConfig.url}/sitemap.xml`,
   };

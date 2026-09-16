@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { Consultant } from "@/types/consultant";
 import { ConsultationCategory } from "@/types/category";
 import {
@@ -186,7 +187,13 @@ export function BookingFlowContainer({
                         }`}
                       >
                         <div className="relative w-12 h-12 rounded-xl overflow-hidden border border-black/10 shrink-0 bg-[#F4EFEA]">
-                          <img src={c.avatar} alt={c.name} className="w-full h-full object-cover" />
+                          <Image
+                            src={c.avatar}
+                            alt={c.name}
+                            fill
+                            className="object-cover"
+                            sizes="48px"
+                          />
                         </div>
                         <div className="min-w-0">
                           <p className="text-xs font-serif font-bold text-[#1C2024] truncate">

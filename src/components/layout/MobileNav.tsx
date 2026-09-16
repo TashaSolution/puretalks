@@ -5,7 +5,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { mainNavItems } from "@/config/navigation";
 import { Button } from "@/ui/Button";
-import { X, Shield, Sparkles, Lock } from "lucide-react";
+import { X, Shield, Sparkles, Lock, LayoutDashboard } from "lucide-react";
+import { UserAvatar } from "@/components/auth/UserAvatar";
+import { SignInButton } from "@/components/auth/SignInButton";
+import { useAuth } from "@/lib/auth/hooks";
 import { cn } from "@/lib/utils";
 
 export interface MobileNavProps {
@@ -15,6 +18,7 @@ export interface MobileNavProps {
 
 export function MobileNav({ isOpen, onClose }: MobileNavProps) {
   const pathname = usePathname();
+  const { user } = useAuth();
 
   if (!isOpen) return null;
 
@@ -89,6 +93,31 @@ export function MobileNav({ isOpen, onClose }: MobileNavProps) {
 
         {/* Bottom CTA */}
         <div className="pt-6 border-t border-black/10 space-y-3">
+          {user ? (
+            <>
+              <div className="flex items-center justify-between gap-3 px-1">
+                <div className="flex items-center gap-3">
+                  <UserAvatar />
+                  <div className="min-w-0">
+                    <p className="text-sm font-semibold text-[#1C2024] truncate">{user.name}</p>
+                    <p className="text-[11px] text-[#6B7280] capitalize">{user.role}</p>
+                  </div>
+                </div>
+              </div>
+              <Link href="/dashboard" onClick={onClose} className="w-full block">
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  className="w-full font-semibold"
+                  leftIcon={<LayoutDashboard className="w-4 h-4" />}
+                >
+                  My Dashboard
+                </Button>
+              </Link>
+            </>
+          ) : (
+            <SignInButton className="w-full" size="lg" />
+          )}
           <Link href="/book" onClick={onClose} className="w-full block">
             <Button
               variant="primary"

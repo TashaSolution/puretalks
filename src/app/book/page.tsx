@@ -26,6 +26,14 @@ export const metadata: Metadata = {
     description: "Instant confidential slot reservation with certified specialists.",
     url: `${siteConfig.url}/book`,
     type: "website",
+    locale: "en_IN",
+    images: [{ url: siteConfig.ogImage, width: 1200, height: 630, alt: "Book a PureTalks Consultation" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Book Private Consultation — PureTalks",
+    description: "Instant confidential slot reservation with certified specialists.",
+    images: [siteConfig.ogImage],
   },
 };
 
@@ -50,8 +58,40 @@ export default async function BookPage({ searchParams }: Props) {
       ? 60
       : 45;
 
+  const webPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Book Private Consultation — PureTalks",
+    description: "Instant confidential slot reservation with certified psychologists and counselors on PureTalks.",
+    url: `${siteConfig.url}/book`,
+    publisher: { "@type": "Organization", name: "PureTalks", url: siteConfig.url },
+    potentialAction: {
+      "@type": "ReserveAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${siteConfig.url}/book`,
+      },
+      result: {
+        "@type": "Reservation",
+        name: "Private Consultation Session",
+      },
+    },
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.url },
+      { "@type": "ListItem", position: 2, name: "Book a Session", item: `${siteConfig.url}/book` },
+    ],
+  };
+
   return (
-    <div className="pt-32 pb-24 container mx-auto px-4 sm:px-6 lg:px-8">
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <div className="pt-32 pb-24 container mx-auto px-4 sm:px-6 lg:px-8">
       <div className="text-center max-w-2xl mx-auto mb-10 space-y-2.5">
         <Badge variant="sage" size="sm" className="font-semibold">
           <Lock className="w-3.5 h-3.5 mr-1 text-[#4A6B5D]" />
@@ -72,6 +112,7 @@ export default async function BookPage({ searchParams }: Props) {
         preselectedCategorySlug={searchParams.category}
         preselectedDuration={durationNum}
       />
-    </div>
+      </div>
+    </>
   );
 }
