@@ -61,6 +61,7 @@ export function ConfirmationCard({ confirmation }: Props) {
               src={confirmation.consultantAvatar}
               alt={confirmation.consultantName}
               fill
+              sizes="56px"
               className="object-cover"
             />
           </div>

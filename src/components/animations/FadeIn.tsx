@@ -1,7 +1,6 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useRef, useEffect, useState } from "react";
 
 export interface FadeInProps {
   children: React.ReactNode;
@@ -12,99 +11,122 @@ export interface FadeInProps {
   distance?: number;
 }
 
+const directionToClass: Record<string, string> = {
+  up: "animate-fade-in-up",
+  down: "animate-fade-in-down",
+  left: "animate-fade-in-left",
+  right: "animate-fade-in-right",
+  none: "animate-fade-in",
+};
+
 export function FadeIn({
   children,
   delay = 0,
-  duration = 0.5,
   direction = "up",
-  className,
-  distance = 24,
+  className = "",
 }: FadeInProps) {
-  const getInitial = () => {
-    switch (direction) {
-      case "up":
-        return { opacity: 0, y: distance };
-      case "down":
-        return { opacity: 0, y: -distance };
-      case "left":
-        return { opacity: 0, x: distance };
-      case "right":
-        return { opacity: 0, x: -distance };
-      case "none":
-      default:
-        return { opacity: 0 };
-    }
-  };
+  const ref = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(el);
+        }
+      },
+      { threshold: 0.1, rootMargin: "-40px" }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  const animationClass = directionToClass[direction] || "animate-fade-in";
+  const delayMs = delay > 0 ? delay * 1000 : 0;
 
   return (
-    <motion.div
-      initial={getInitial()}
-      whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once: true, margin: "-40px" }}
-      transition={{
-        duration,
-        delay,
-        ease: [0.21, 0.47, 0.32, 0.98],
-      }}
+    <div
+      ref={ref}
       className={className}
+      style={{
+        opacity: isVisible ? undefined : 0,
+        ...(isVisible && delayMs > 0
+          ? { animationDelay: `${delayMs}ms` }
+          : !isVisible
+            ? { animationPlayState: "paused" as const }
+            : {}),
+      }}
     >
-      {children}
-    </motion.div>
+      <div
+        className={isVisible ? animationClass : ""}
+        style={delayMs > 0 && isVisible ? { animationDelay: `${delayMs}ms` } : undefined}
+      >
+        {children}
+      </div>
+    </div>
   );
 }
 
 export function StaggerContainer({
   children,
   staggerDelay = 0.08,
-  className,
+  className = "",
 }: {
   children: React.ReactNode;
   staggerDelay?: number;
   className?: string;
 }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(el);
+        }
+      },
+      { threshold: 0.1, rootMargin: "-40px" }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <motion.div
-      initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, margin: "-40px" }}
-      variants={{
-        hidden: {},
-        show: {
-          transition: {
-            staggerChildren: staggerDelay,
-          },
-        },
-      }}
-      className={className}
-    >
-      {children}
-    </motion.div>
+    <div ref={ref} className={className}>
+      {React.Children.map(children, (child, index) => (
+        <div
+          key={index}
+          style={
+            isVisible
+              ? { animationDelay: `${index * staggerDelay * 1000}ms` }
+              : { opacity: 0 }
+          }
+          className={isVisible ? "animate-fade-in-up" : ""}
+        >
+          {child}
+        </div>
+      ))}
+    </div>
   );
 }
 
 export function StaggerItem({
   children,
-  className,
+  className = "",
 }: {
   children: React.ReactNode;
   className?: string;
 }) {
-  return (
-    <motion.div
-      variants={{
-        hidden: { opacity: 0, y: 20 },
-        show: {
-          opacity: 1,
-          y: 0,
-          transition: {
-            duration: 0.5,
-            ease: [0.21, 0.47, 0.32, 0.98],
-          },
-        },
-      }}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
+  return <div className={className}>{children}</div>;
 }

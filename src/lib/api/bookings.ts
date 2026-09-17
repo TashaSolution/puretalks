@@ -2,6 +2,7 @@ import { BookingFormData, BookingConfirmation, DayAvailability } from "@/types/b
 import { consultantsData } from "@/data/consultants";
 import { categoriesData } from "@/data/categories";
 import { apiClient } from "./client";
+import { siteConfig } from "@/config/site";
 
 export async function getConsultantAvailability(consultantId: string): Promise<DayAvailability[]> {
   return apiClient<DayAvailability[]>(`/consultants/${consultantId}/availability`, {}, () => {
@@ -74,7 +75,7 @@ export async function createBooking(data: BookingFormData): Promise<BookingConfi
       durationMinutes: data.durationMinutes,
       clientName: data.clientName,
       amountPaid: price,
-      meetingLink: `https://puretalks.in/room/${randomId.toLowerCase()}`,
+      meetingLink: `${siteConfig.url}/room/${randomId.toLowerCase()}`,
       passcode: roomPass,
     };
   });

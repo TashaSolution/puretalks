@@ -3,7 +3,6 @@
 import React, { useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
 import {
   LayoutDashboard,
   Calendar,
@@ -55,44 +54,27 @@ export function DashboardSidebar({
   return (
     <>
       {/* Mobile Overlay */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.25 }}
-            className="fixed inset-0 bg-black/30 backdrop-blur-sm z-40 lg:hidden"
-            onClick={onMobileClose}
-          />
+      <div
+        className={cn(
+          "fixed inset-0 bg-black/30 backdrop-blur-sm z-40 lg:hidden transition-opacity duration-300",
+          mobileOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         )}
-      </AnimatePresence>
+        onClick={onMobileClose}
+      />
 
       {/* Sidebar */}
-      <motion.aside
-        initial={false}
-        animate={
-          mobileOpen
-            ? { x: 0 }
-            : collapsed
-              ? { width: 72 }
-              : { width: 256 }
-        }
-        transition={{ duration: 0.3, ease: [0.21, 0.47, 0.32, 0.98] }}
+      <aside
         className={cn(
-          "fixed left-0 top-0 h-full bg-white shadow-[2px_0_8px_-2px_rgba(0,0,0,0.06)] z-50 flex flex-col",
+          "fixed left-0 top-0 h-full bg-white shadow-[2px_0_8px_-2px_rgba(0,0,0,0.06)] z-50 flex flex-col transition-all duration-300 ease-[cubic-bezier(0.21,0.47,0.32,0.98)]",
           "hidden lg:flex",
-          mobileOpen ? "!flex w-[85vw] max-w-64 shadow-2xl lg:!hidden" : ""
+          mobileOpen ? "!flex w-[85vw] max-w-64 shadow-2xl lg:!hidden" : "",
+          !mobileOpen && collapsed ? "w-[72px]" : !mobileOpen ? "w-[256px]" : ""
         )}
       >
         {/* Logo */}
         <div className="h-16 flex items-center justify-between px-4 border-b border-black/[0.04]">
           {!collapsed || mobileOpen ? (
-            <motion.div
-              initial={{ opacity: 0, x: -8 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.3 }}
-            >
+            <div className="animate-fade-in">
               <Link href="/dashboard" className="flex items-center gap-2">
                 <div className="w-8 h-8 rounded-lg bg-[#4A6B5D] flex items-center justify-center">
                   <span className="text-white font-serif font-bold text-sm">
@@ -103,7 +85,7 @@ export function DashboardSidebar({
                   PureTalks
                 </span>
               </Link>
-            </motion.div>
+            </div>
           ) : (
             <div className="w-8 h-8 rounded-lg bg-[#4A6B5D] flex items-center justify-center mx-auto">
               <span className="text-white font-serif font-bold text-sm">P</span>
@@ -141,25 +123,11 @@ export function DashboardSidebar({
                 title={collapsed && !mobileOpen ? link.label : undefined}
               >
                 {isActive && (
-                  <motion.span
-                    layoutId="sidebar-active"
-                    className="absolute inset-0 rounded-xl bg-[#4A6B5D]/10 border border-[#4A6B5D]/10"
-                    transition={{
-                      type: "spring",
-                      stiffness: 380,
-                      damping: 30,
-                    }}
-                  />
+                  <span className="absolute inset-0 rounded-xl bg-[#4A6B5D]/10 border border-[#4A6B5D]/10" />
                 )}
                 <link.icon className="w-5 h-5 shrink-0 relative z-10" />
                 {!collapsed && (
-                  <motion.span
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    className="relative z-10"
-                  >
-                    {link.label}
-                  </motion.span>
+                  <span className="relative z-10">{link.label}</span>
                 )}
               </Link>
             );
@@ -179,25 +147,21 @@ export function DashboardSidebar({
             <Shield className="w-5 h-5 shrink-0" />
             {!collapsed && <span>Admin Panel</span>}
           </Link>
-          <motion.button
-            whileTap={{ scale: 0.95 }}
+          <button
             onClick={onToggle}
-            className="hidden lg:flex w-full items-center justify-center py-2.5 rounded-xl text-[#9CA3AF] hover:text-[#6B7280] hover:bg-[#F5EFEB] transition-colors min-h-[44px]"
+            className="hidden lg:flex w-full items-center justify-center py-2.5 rounded-xl text-[#9CA3AF] hover:text-[#6B7280] hover:bg-[#F5EFEB] active:scale-[0.95] transition-all min-h-[44px]"
             aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
           >
-            <motion.span
-              animate={{ rotate: collapsed ? 180 : 0 }}
-              transition={{ duration: 0.3 }}
-            >
+            <span className={cn("transition-transform duration-300", collapsed ? "rotate-180" : "")}>
               {collapsed ? (
                 <ChevronRight className="w-4 h-4" />
               ) : (
                 <ChevronLeft className="w-4 h-4" />
               )}
-            </motion.span>
-          </motion.button>
+            </span>
+          </button>
         </div>
-      </motion.aside>
+      </aside>
     </>
   );
 }

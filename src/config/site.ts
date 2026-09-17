@@ -3,7 +3,7 @@ export const siteConfig = {
   tagline: "Private Online Consultations & Mental Clarity Sanctuary",
   description:
     "100% confidential, private online consultations with licensed psychologists, relationship counselors, and executive coaches. A safe sanctuary with anonymous mode and zero data logging.",
-  url: "https://puretalks.in",
+  url: "https://www.puretalks.in",
   ogImage: "/images/og/puretalks-og.png",
   contact: {
     email: "care@puretalks.in",

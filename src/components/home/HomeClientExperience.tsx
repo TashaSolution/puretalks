@@ -24,41 +24,24 @@ interface Props {
 export function HomeClientExperience({ categories, featuredConsultants }: Props) {
   return (
     <div className="relative min-h-screen">
-      {/* Hero Section */}
+      {/* Hero Section - Above the fold */}
       <HeroSection />
 
-      {/* Trust & Credibility Strip */}
+      {/* Trust & Credibility Strip - Above the fold */}
       <TrustStrip />
 
-      {/* Consultation Categories */}
+      {/* Structured SSR Sections with CSS-driven viewport entrance */}
       <CategoriesSection categories={categories} />
-
-      {/* Featured Consultants */}
       <FeaturedConsultantsSection consultants={featuredConsultants} />
-
-      {/* Privacy & Confidentiality Guarantee */}
       <PrivacyConfidentialitySection />
-
-      {/* Global Sanctuary Spotlight */}
       <GlobalSanctuarySection />
-
-      {/* How PureTalks Works */}
       <HowItWorksSection />
-
-      {/* Why Choose Platform */}
       <WhyChooseUsSection />
-
-      {/* Verified Client Testimonials */}
       <TestimonialsSection />
-
-      {/* FAQ Section */}
       <FAQSection />
-
-      {/* Final Call to Action */}
       <FinalCTASection />
-
-      {/* SEO Content Section */}
       <SEOContentSection />
     </div>
   );
 }
+
