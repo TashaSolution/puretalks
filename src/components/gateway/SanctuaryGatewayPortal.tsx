@@ -3,7 +3,6 @@
 import React from "react";
 import dynamic from "next/dynamic";
 import { Sparkles, ArrowRight, Compass, ShieldCheck, HeartHandshake, Headphones, UserCheck } from "lucide-react";
-import { motion } from "framer-motion";
 
 const SanctuaryGatewayCanvas = dynamic(
   () => import("@/components/3d/SanctuaryGatewayCanvas").then((mod) => mod.SanctuaryGatewayCanvas),
@@ -57,11 +56,8 @@ export function SanctuaryGatewayPortal({ onEnterDashboard }: Props) {
 
       {/* Floating Glassmorphic Card on the Left */}
       <div className="absolute top-24 sm:top-28 left-4 sm:left-10 z-20 max-w-[460px] pointer-events-auto">
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="p-7 sm:p-8 rounded-3xl bg-black/50 backdrop-blur-2xl border border-white/15 shadow-2xl shadow-black/80 space-y-5"
+        <div
+          className="p-7 sm:p-8 rounded-3xl bg-black/50 backdrop-blur-2xl border border-white/15 shadow-2xl shadow-black/80 space-y-5 animate-fade-in-left"
         >
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E11D48]/20 border border-[#E11D48]/40 text-[#FDA4AF] text-xs font-semibold shadow-inner">
@@ -112,7 +108,7 @@ export function SanctuaryGatewayPortal({ onEnterDashboard }: Props) {
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
-        </motion.div>
+        </div>
       </div>
 
       {/* 3D Interaction Tip Pill in Center Bottom */}

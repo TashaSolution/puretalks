@@ -6,12 +6,10 @@ import { useLanguage } from "@/locales/i18n-context";
 import { Button } from "@/ui/Button";
 import { Badge } from "@/ui/Badge";
 import { ArrowRight, Lock, CheckCircle2, ShieldCheck, Sparkles, Shield, Users, Star } from "lucide-react";
-import { motion, useReducedMotion } from "framer-motion";
 import { HeroDoctorShowcase } from "@/components/hero/HeroDoctorShowcase";
 
 export function HeroSection() {
   const { t } = useLanguage();
-  const shouldReduceMotion = useReducedMotion();
 
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center pt-28 sm:pt-32 lg:pt-36 pb-16 sm:pb-20 overflow-hidden bg-mesh-glow">
@@ -22,11 +20,8 @@ export function HeroSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           {/* Left Column: Core Value Proposition & CTAs */}
-          <motion.div
-            initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
-            animate={shouldReduceMotion ? false : { opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-7 space-y-6 sm:space-y-7 text-left"
+          <div
+            className="lg:col-span-7 space-y-6 sm:space-y-7 text-left animate-fade-in-up"
           >
             {/* Trust Pill */}
             <div className="inline-flex items-center">
@@ -96,7 +91,7 @@ export function HeroSection() {
                 <span>P2P Encrypted</span>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Right Column: Live Doctor & Session Interactive Showcase */}
           <div className="lg:col-span-5 w-full">

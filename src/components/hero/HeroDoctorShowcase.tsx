@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Star, ShieldCheck, Lock, Mic, Video, CheckCircle2, Calendar, Sparkles, ArrowRight, Shield } from "lucide-react";
-import { motion, useReducedMotion } from "framer-motion";
 import { Badge } from "@/ui/Badge";
 import { Button } from "@/ui/Button";
 
@@ -57,7 +56,6 @@ const featuredSpecialists: SpecialistPreview[] = [
 export function HeroDoctorShowcase() {
   const [selectedIdx, setSelectedIdx] = useState(0);
   const [activeMode, setActiveMode] = useState<"audio" | "video" | "anonymous">("anonymous");
-  const shouldReduceMotion = useReducedMotion();
 
   const currentDoctor = featuredSpecialists[selectedIdx] || featuredSpecialists[0];
 
@@ -67,22 +65,16 @@ export function HeroDoctorShowcase() {
       <div className="absolute -inset-4 bg-gradient-to-tr from-[#4A6B5D]/15 via-[#C5A869]/10 to-[#FAF8F5]/0 rounded-[2.5rem] blur-2xl pointer-events-none" />
 
       {/* Floating Trust Badge - Top Right */}
-      <motion.div
-        initial={shouldReduceMotion ? false : { opacity: 0, y: -10, scale: 0.95 }}
-        animate={shouldReduceMotion ? false : { opacity: 1, y: 0, scale: 1 }}
-        transition={{ delay: 0.2, duration: 0.6 }}
-        className="absolute -top-4 -right-2 sm:right-2 z-20 px-3.5 py-1.5 rounded-full bg-white/95 border border-[#C5A869]/30 shadow-card backdrop-blur-md flex items-center gap-1.5 text-xs font-semibold text-[#1C2024]"
+      <div
+        className="absolute -top-4 -right-2 sm:right-2 z-20 px-3.5 py-1.5 rounded-full bg-white/95 border border-[#C5A869]/30 shadow-card backdrop-blur-md flex items-center gap-1.5 text-xs font-semibold text-[#1C2024] animate-slide-in-badge delay-200"
       >
         <Sparkles className="w-3.5 h-3.5 text-[#C5A869]" />
         <span>Verified Specialist</span>
-      </motion.div>
+      </div>
 
       {/* Main Showcase Card */}
-      <motion.div
-        initial={shouldReduceMotion ? false : { opacity: 0, y: 20 }}
-        animate={shouldReduceMotion ? false : { opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-        className="relative bg-white rounded-3xl border border-black/[0.08] shadow-card overflow-hidden"
+      <div
+        className="relative bg-white rounded-3xl border border-black/[0.08] shadow-card overflow-hidden animate-fade-in-up delay-100"
       >
         {/* Top Status Header */}
         <div className="px-5 sm:px-6 py-3.5 bg-[#FAF8F5] border-b border-black/[0.06] flex items-center justify-between">
@@ -109,7 +101,7 @@ export function HeroDoctorShowcase() {
                 alt={currentDoctor.name}
                 fill
                 priority
-                sizes="120px"
+                sizes="(max-width: 640px) 80px, 96px"
                 className="object-cover transition-transform duration-500 hover:scale-105"
               />
             </div>
@@ -239,7 +231,7 @@ export function HeroDoctorShowcase() {
             Zero Recording Policy
           </span>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }

@@ -1,16 +1,18 @@
 import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans, Playfair_Display } from "next/font/google";
-import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import "./globals.css";
 import { LanguageProvider } from "@/locales/i18n-context";
 import { AuthProvider } from "@/components/auth/AuthProvider";
 import { SiteLayout } from "@/components/layout/SiteLayout";
+import { DeferredAnalytics } from "@/components/analytics/DeferredAnalytics";
 import { siteConfig } from "@/config/site";
 
 const sansFont = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
+  preload: true,
+  adjustFontFallback: true,
 });
 
 const serifFont = Playfair_Display({
@@ -18,6 +20,8 @@ const serifFont = Playfair_Display({
   weight: ["400", "600", "700"],
   variable: "--font-serif",
   display: "swap",
+  preload: true,
+  adjustFontFallback: true,
 });
 
 const organizationSchema = {
@@ -210,7 +214,8 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalBusinessSchema) }}
         />
-        <link rel="preconnect" href="https://images.unsplash.com" />
+        <link rel="preconnect" href="https://images.unsplash.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://images.unsplash.com" />
       </head>
       <body className={`${sansFont.variable} ${serifFont.variable} font-sans min-h-screen flex flex-col bg-[#FAF8F5] text-[#1C2024] antialiased selection:bg-[#5C7C6D]/20 selection:text-[#1C2024]`}>
         <LanguageProvider>
@@ -218,8 +223,10 @@ export default function RootLayout({
             <SiteLayout>{children}</SiteLayout>
           </AuthProvider>
         </LanguageProvider>
-        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || "G-XXXXXXXXXX"} />
-        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID || "GTM-XXXXXXX"} />
+        <DeferredAnalytics
+          gaId={process.env.NEXT_PUBLIC_GA_ID}
+          gtmId={process.env.NEXT_PUBLIC_GTM_ID}
+        />
       </body>
     </html>
   );

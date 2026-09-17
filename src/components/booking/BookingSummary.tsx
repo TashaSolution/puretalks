@@ -66,6 +66,7 @@ export function BookingSummary({
             src={consultant.avatar}
             alt={consultant.name}
             fill
+            sizes="48px"
             className="object-cover"
           />
         </div>
